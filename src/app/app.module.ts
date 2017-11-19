@@ -29,6 +29,10 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+import {AngularFireModule} from "angularfire2";
+import {FIREBASE_CONFIG} from "./app.firebase.config";
+import {AngularFireAuthModule} from "angularfire2/auth";
+
 
 @NgModule({
   declarations: [
@@ -49,6 +53,8 @@ import { UserData } from '../providers/user-data';
     SupportPage
   ],
   imports: [
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule,
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
